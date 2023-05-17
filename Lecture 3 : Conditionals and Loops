@@ -1,0 +1,646 @@
+Lecture 3 : Conditionals and Loops
+------------------------------------
+Q1. What is the output
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int x = 5; 
+    if (x < 6)
+        cout <<  “Hello ”;
+    if(x == 5){
+        cout << “Hi ”;
+    }
+    else { 
+        cout << “Hey ”;
+    } 
+}
+
+Options :
+This problem has only one correct answer.
+> Hello
+> Hi
+> Hello Hi               <<-------------- Correct Answer
+> Hello Hey
+
+Solution Description
+First if condition is true, so "Hello " will be printed. 
+After that, next if condition will be evaluated (as both if's are independent if's) which is again true. 
+Hence, next "Hi " will be printed. We won't go inside else, as if is already executed.
+******************************************************************************************************************************************
+Q2. What is the output
+
+#include <iostream>
+using namespace std;
+int main() {
+    int x = 15;
+    if(x <= 15) {
+        cout << "Inside if ";
+    } else if(x == 15) {
+        cout << "Inside else if ";
+    }
+    cout << x;
+}
+
+Options : 
+This problem has only one correct answer
+> Inside if
+> 15
+> Inside if Inside else if 15
+> Inside if 15               <<----------- Correct Answer
+
+Solution Description
+The condition inside if is true, hence statement "Inside if" will be printed.
+After that, we'll directly jump to statement : cout << x. So, after that 15 will be printed.
+******************************************************************************************************************************************
+What is the output
+
+Q3. What will be output for the following code:
+int main(){
+    int marks = 75;
+
+    if(marks>=50){     
+       if(marks>=80) cout<<"Grade: A";
+       else{ 
+          if(marks>=60) cout<<"Grade: B";
+          else cout<<"Grade: C";   
+       }
+     }
+     else cout<<"Grade: F";
+}
+
+Options : 
+This problem has only one correct answer
+> Grade: F
+> Grade: B <<<---------------- Correct answer
+> Grade: C
+> Grade: A
+*******************************************************************************************************************************************
+
+Q4. If statement
+For what values of the x, the 'if-statement' block will not be executed ?
+       if((1+x) != (1-x)) {
+          cout<<"In if block";
+         }
+         
+Options :
+This problem has only one correct answer
+> 0 and all negative values
+> 0 and -1
+> 0, all negative values, all positive values except 1
+> 0                    <<--------------------------------------Correct answer
+
+Solution Description
+x = 0 is the only case when 1+x equals 1-x. So for x = 0 If statement will not be executed. 
+For all other values, if statement will be executed and "In If block" will be printed.  
+*******************************************************************************************************************************************
+Q5. What is the output
+
+#include <iostream>
+using namespace std;
+int main() {
+    int a = 10, b = 20, c = 100;
+    if(a <= b || c <= b) {
+        cout << "hello" << endl;
+    }
+    else if(a <= b || a <= c) {
+        cout << "hi" << endl;
+    }
+    else {
+        cout << "hey" << endl;
+    }
+}
+
+Answer :
+> hello  <<-------- Correct answer
+
+Solution Description
+In if condition, we are using logical OR operator ("||"). So if even one condition is true, final answer will be true.
+******************************************************************************************************************************************
+Q6. What is the output
+
+#include <iostream>
+using namespace std;
+int main() {
+    int a = 10, b = 20, c = 30;
+    if(a <= b && !b) {
+        cout << "hello";
+    }
+    else if(c >= a && c >= b) {
+        cout << "hi";
+    }
+    else {
+        cout << "hey";
+    }
+}
+
+Answer
+> hi   <<--------------- Correct Answer
+
+Solution Description
+a <= b evaluates to true, but !b evaluates to false (! operator negates the value, b is non-zero and hence !b becomes 0 which is false). 
+For AND operator ("&&"), all the condition must be true. 
+So we'll move to else if condition which evaluates to be true as both conditions (c >= a and c >= b) are true.
+Hence, "hi" will be printed.
+*******************************************************************************************************************************************
+Check Case
+------------
+Q7. Write a program that takes a character as input and prints either 1, 0 or -1 according to the following rules.
+1, if the character is an uppercase alphabet (A - Z)
+0, if the character is a lowercase alphabet (a - z)
+-1, if the character is not an alphabet
+Input format :
+Single Character
+Output format :
+1 or 0 or -1
+Constraints :
+Input can be any character
+Sample Input 1 :
+v
+Sample Output 1 :
+0
+Sample Input 2 :
+V
+Sample Output 2 :
+1
+Sample Input 3 :
+#
+Sample Output 3 :
+-1
+
+-------->>Answer<<------------
+import java.lang.*; 
+import java.util.*;
+public class Solution {
+    
+    public static void main(String[] args) {
+        // Write your code here
+
+        Scanner sc=new Scanner(System.in);
+        char n = sc.next().charAt(0);        
+        int a=n;
+        if(a>=65 && a<=90)
+        {
+            System.out.print("1");
+        }
+        else if(a>=97 && a<=122)
+        {
+             System.out.print("0");
+        }
+        else
+        {
+             System.out.print("-1");
+        }
+      
+         
+
+    }
+}
+******************************************************************************************************************************************
+Sum of Even Numbers till N
+---------------------------
+Q8. Given a number N, print sum of all even numbers from 1 to N.
+Input Format :
+Integer N
+Output Format :
+Required Sum 
+Sample Input 1 :
+ 6
+Sample Output 1 :
+12
+
+-------->>Answer<<------------
+Java code.
+---------
+import java.util.Scanner;
+public class Solution {
+
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int sum=0,i=1;
+        while(i<=n)
+        {
+            if(i%2==0)
+            {
+                sum=sum+i;
+             
+            }
+            
+                i++;
+        }
+
+		System.out.print(sum);
+	}
+
+}
+*******************************************************************************************************************************************
+Fahrenheit to Celsius Table
+-----------------------------
+
+Q9. Given three values - Start Fahrenheit Value (S), End Fahrenheit value (E) and Step Size (W), you need to convert all Fahrenheit values from Start to End at the gap of W, into their corresponding Celsius values and print the table.
+Input Format :
+3 integers - S, E and W respectively 
+Output Format :
+Fahrenheit to Celsius conversion table. One line for every Fahrenheit and corresponding Celsius value in integer form. The Fahrenheit value and its corresponding Celsius value should be separate by single space.
+Constraints :
+0 <= S <= 90
+S <= E <=  900
+0 <= W <= 80 
+Sample Input 1:
+0 
+100 
+20
+Sample Output 1:
+0   -17
+20  -6
+40  4
+60  15
+80  26
+100 37
+Sample Input 2:
+20
+119
+13
+Sample Output 2:
+20  -6
+33  0 
+46  7
+59  15
+72  22
+85  29
+98  36
+111 43
+Explanation For Input 2:
+Start calculating the Celsius values for each Fahrenheit Value which starts from 20. 
+So starting from 20, we need to compute its corresponding Celsius value which computes to -6. 
+We print this information as <Fahrenheit Value> <a single space> <Celsius Value> on each line.
+Now add 13 to Fahrenheit Value at each step until you reach 119 in this case. You may or may not exactly land on the end value depending on the steps you are taking.
+
+      -------->>Answer<<------------
+          
+ import java.util.Scanner;
+
+public class Solution {
+
+
+	public static void main(String[] args) {
+		
+		/* Your class should be named Solution.
+	 	* Read input as specified in the question.
+	 	* Print output as specified in the question.
+		*/
+    Scanner s=new Scanner(System.in);
+    int S=s.nextInt();
+    int E=s.nextInt();
+    int W=s.nextInt();
+	int fah;
+        
+        while(S<=E)
+        {
+         
+            fah=((5*(S-32))/9);
+             System.out.println(S+" "+fah);
+            S+=W;
+        }
+	}
+
+}     
+
+*******************************************************************************************************************************************
+Number Pattern 1
+----------------
+Q10.Print the following pattern
+Pattern for N = 4
+1
+23
+345
+4567
+Input Format :
+N (Total no. of rows)
+Output Format :
+Pattern in N lines
+Sample Input 1 :
+3
+Sample Output 1 :
+1
+23
+345
+
+ -------->>Answer<<------------
+ 
+ import java.util.Scanner;
+public class Solution 
+{
+
+	public static void main(String[] args) 
+	{
+		Scanner s =new Scanner(System.in);
+		int n=s.nextInt();
+		int i=1;
+		while(i<=n)
+		{
+			int val=i;
+			int j=1;
+			while(j<=i)
+			{
+				System.out.print(val);
+				val++;
+				j++;
+			}
+		System.out.println("");
+		i++;
+		}
+		
+	}
+
+}
+
+*******************************************************************************************************************************************
+Number Pattern 2
+-----------------
+Q11. Print the following pattern
+Pattern for N = 4
+
+
+The dots represent spaces.
+
+
+
+Input Format :
+N (Total no. of rows)
+Output Format :
+Pattern in N lines
+Sample Input :
+5
+Sample Output :
+
+
+The dots represent spaces.
+
+ -------->>Answer<<------------
+ 
+import java.util.Scanner;
+public class Solution
+{
+	public static void main(String[] args) 
+	{
+		Scanner s =new Scanner(System.in);
+		int n=s.nextInt();
+		int i=1;
+		while(i<=n)
+		{
+			int val=i;
+			int space=1;
+				while(space<=n-i)
+				{
+					System.out.print(" ");
+					space=space+1;
+				}
+				int j=1;
+			while(j<=i)
+			{
+				System.out.print(val);
+				val++;
+				j++;
+			}
+		System.out.println("");
+		i++;
+		}	
+	}
+}
+********************************************************************************************************************************************
+Start Pattern
+-------------
+Q12. Print the following pattern
+Pattern for N = 4
+
+
+
+The dots represent spaces.
+
+
+
+Input Format :
+N (Total no. of rows)
+Output Format :
+Pattern in N lines
+Constraints :
+0 <= N <= 50
+Sample Input 1 :
+3
+Sample Output 1 :
+   *
+  *** 
+ *****
+Sample Input 2 :
+4
+Sample Output 2 :
+    *
+   *** 
+  *****
+ *******
+ 
+ -------->>Answer<<------------
+ 
+ import java.util.Scanner;
+public class Solution
+{
+	public static void main(String[] args) 
+	{
+		Scanner s =new Scanner(System.in);
+		int n=s.nextInt();
+		int i=0;
+		int val=1;
+		while(i<n)
+		{
+			int space=1;
+			while(space<n-i)
+			{
+				System.out.print(" ");
+				space++;
+			}
+			int j=0;
+			while(j<val)
+			{
+				System.out.print("*");
+				j++;
+			}
+			val=val+2;
+		System.out.println("");
+		i++;
+		}	
+	}
+}
+
+********************************************************************************************************************************************
+
+
+                                         Assignment
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Total Salary
+-----------
+Q13. Write a program to calculate the total salary of a person. The user has to enter the basic salary (an integer) and the grade (an uppercase character), and depending upon which the total salary is calculated as -
+    totalSalary = basic + hra + da + allow – pf
+where :
+hra   = 20% of basic
+da    = 50% of basic
+allow = 1700 if grade = ‘A’
+allow = 1500 if grade = ‘B’
+allow = 1300 if grade = ‘C' or any other character
+pf    = 11% of basic.
+Round off the total salary and then print the integral part only.
+Note for C++ users :
+To round off the value , please include<cmath> library in the start of the program.
+And round off the values in this way 
+int ans = round(yourFinalValue);
+Input format :
+Basic salary & Grade (separated by space)
+Output Format :
+Total Salary
+Constraints :
+0 <= Basic Salary <= 7,500,000
+Sample Input 1 :
+10000 A
+Sample Output 1 :
+17600
+Sample Input 2 :
+4567 B
+Sample Output 2 :
+8762
+Explanation of Input 2:
+We have been given the basic salary as Rs. 4567. We need to calculate the hra, da and pf. 
+Now when we calculate each of the, it turns out to be:
+hra =  20% of Rs. 4567 = Rs. 913.4
+da = 50% od Rs. 4567 = Rs. 2283.5
+pf = 11% of Rs. 4567 = Rs. 502.37
+
+Since, the grade is 'B', we take allowance as Rs. 1500.
+On substituting these values to the formula of totalSalary, we get Rs. 8761.53 and now rounding it off will result in Rs. 8762 and hence the Answer.
+
+ -------->>Answer<<------------
+ 
+ import java.util.Scanner;
+import java.lang.Math;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int bs = s.nextInt();
+		String str = s.next();
+		char c = str.charAt(0);
+		int all;
+		if (c == 65) {
+			all = 1700;
+		} else if (c == 66) {
+			all = 1500;
+		} else {
+			all = 1300;
+		}
+		double ts = ((bs + (0.20 * bs) + (0.50 * bs) + all) - (0.11 * bs));
+		double p = Math.round(ts);
+		int h = (int) (p);
+		System.out.println(h);
+	}
+}
+
+*******************************************************************************************************************************************
+
+Sum of even & odd
+--------------------
+Q14. Write a program to input an integer N and print the sum of all its even digits and sum of all its odd digits separately.
+Digits mean numbers, not the places! That is, if the given integer is "13245", even digits are 2 & 4 and odd digits are 1, 3 & 5.
+Input format :
+ Integer N
+Output format :
+Sum_of_Even_Digits Sum_of_Odd_Digits
+(Print first even sum and then odd sum separated by space)
+Constraints
+0 <= N <= 10^8
+Sample Input 1:
+1234
+Sample Output 1:
+6 4
+Sample Input 2:
+552245
+Sample Output 2:
+8 15
+
+ -------->>Answer<<------------
+ 
+ C++
+ ----
+ 
+ #include <iostream>
+using namespace std;
+
+int main() {
+
+  int n;
+  cin >> n;
+
+  int evenSum = 0, oddSum = 0;
+
+  while (n > 0) {
+    int last = n % 10;
+    if (last % 2 == 0) {
+      evenSum += last;
+    } else {
+      oddSum += last;
+    }
+    n = n / 10;
+  }
+
+  cout << evenSum << " " << oddSum;
+}
+
+*******************************************************************************************************************************************
+
+Find power of a number
+----------------------
+Q15. Write a program to find x to the power n (i.e. x^n). Take x and n from the user. You need to print the answer.
+Note : For this question, you can assume that 0 raised to the power of 0 is 1
+
+
+Input format :
+Two integers x and n (separated by space)
+Output Format :
+x^n (i.e. x raise to the power n)
+Constraints:
+0 <= x <= 8 
+0 <= n <= 9
+Sample Input 1 :
+ 3 4
+Sample Output 1 :
+81
+Sample Input 2 :
+ 2 5
+Sample Output 2 :
+32
+
+
+ -------->>Answer<<------------
+ C++
+ ----
+ 
+ #include <iostream>
+
+using namespace std;
+
+int main() {
+  int x, n;
+  cin >> x >> n;
+  int ans = 1;
+  while (n > 0) {
+    ans *= x;
+    n--;
+  }
+  cout << ans;
+}
+ 
+
+
